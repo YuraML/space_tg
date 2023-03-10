@@ -14,7 +14,7 @@ def get_epic_earth_pics():
     Path("images").mkdir(parents=True, exist_ok=True)
     downloaded_from = 'epic_'
     epic_api_url = 'https://api.nasa.gov/EPIC/api/natural'
-    params = {'api_key': os.getenv("TOKEN")}
+    params = {'api_key': os.getenv("NASA_TOKEN")}
     response = requests.get(epic_api_url, params=params)
     response.raise_for_status()
     images_description = response.json()

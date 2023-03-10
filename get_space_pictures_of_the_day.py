@@ -20,7 +20,7 @@ def get_apod():
 
     downloaded_from = 'nasa_apod_'
     apod_url = 'https://api.nasa.gov/planetary/apod'
-    params = {'api_key': os.getenv("TOKEN"),
+    params = {'api_key': os.getenv("NASA_TOKEN"),
               'count': args.images_count}
     response = requests.get(apod_url, params=params)
     response.raise_for_status()
