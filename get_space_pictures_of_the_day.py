@@ -25,8 +25,8 @@ def get_apod():
     response = requests.get(apod_url, params=params)
     response.raise_for_status()
     images_description = response.json()
-    images_urls = [unquote(image['url']) for image in images_description]
-    download_images(images_urls, downloaded_from)
+    image_urls = [unquote(image['url']) for image in images_description]
+    download_images(image_urls, downloaded_from)
 
 
 get_apod()

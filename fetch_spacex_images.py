@@ -17,8 +17,8 @@ def fetch_spacex_images():
     response = requests.get(spacex_url)
     response.raise_for_status()
 
-    images_urls = response.json()['links']['flickr']['original']
-    download_images(images_urls, downloaded_from)
+    image_urls = response.json()['links']['flickr']['original']
+    download_images(image_urls, downloaded_from)
 
 
 fetch_spacex_images()

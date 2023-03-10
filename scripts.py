@@ -4,9 +4,9 @@ import requests
 from urllib.parse import urlsplit, unquote
 
 
-def download_images(images_urls, downloaded_from):
+def download_images(image_urls, downloaded_from):
     images_path = 'images'
-    for image_number, image_url in enumerate(images_urls):
+    for image_number, image_url in enumerate(image_urls):
         extension = get_image_extension(image_url)
         filename = f'{downloaded_from}{image_number}{extension}'
         response = requests.get(image_url)
