@@ -3,15 +3,13 @@ import os
 import requests
 import urllib.parse
 
+from dotenv import load_dotenv
 from pathlib import Path
-
 from scripts import download_images
 
-from dotenv import load_dotenv
-load_dotenv()
 
-
-def get_epic_earth_pics():
+def main():
+    load_dotenv()
     Path("images").mkdir(parents=True, exist_ok=True)
     downloaded_from = 'epic_'
     epic_api_url = 'https://api.nasa.gov/EPIC/api/natural'
@@ -32,4 +30,5 @@ def get_epic_earth_pics():
     download_images(image_urls, downloaded_from)
 
 
-get_epic_earth_pics()
+if __name__ == '__main__':
+    main()

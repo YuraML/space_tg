@@ -2,16 +2,14 @@ import argparse
 import os
 import requests
 
+from dotenv import load_dotenv
 from pathlib import Path
+from scripts import download_images
 from urllib.parse import unquote
 
-from scripts import download_images
 
-from dotenv import load_dotenv
-load_dotenv()
-
-
-def get_apod():
+def main():
+    load_dotenv()
     Path("images").mkdir(parents=True, exist_ok=True)
     parser = argparse.ArgumentParser(
         description='Скрипт позволяет скачать заданное количество фотографий космоса из ежедневной подборки NASA.')
@@ -29,4 +27,5 @@ def get_apod():
     download_images(image_urls, downloaded_from)
 
 
-get_apod()
+if __name__ == '__main__':
+    main()

@@ -2,11 +2,10 @@ import argparse
 import requests
 
 from pathlib import Path
-
 from scripts import download_images
 
 
-def fetch_spacex_images():
+def main():
     Path("images").mkdir(parents=True, exist_ok=True)
     downloaded_from = 'spacex_'
     parser = argparse.ArgumentParser(
@@ -21,4 +20,5 @@ def fetch_spacex_images():
     download_images(image_urls, downloaded_from)
 
 
-fetch_spacex_images()
+if __name__ == '__main__':
+    main()
