@@ -13,7 +13,7 @@ def main():
     Path("images").mkdir(parents=True, exist_ok=True)
     downloaded_from = 'epic_'
     epic_api_url = 'https://api.nasa.gov/EPIC/api/natural'
-    api_key = os.getenv("NASA_TOKEN")
+    api_key = os.environ["NASA_TOKEN"]
     params = {'api_key': api_key}
     response = requests.get(epic_api_url, params=params)
     response.raise_for_status()

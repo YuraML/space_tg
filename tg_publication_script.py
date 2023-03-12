@@ -19,8 +19,8 @@ def main():
     publication_delay = args.publication_delay * 60 * 60
 
     images_path = os.path.join(os.getcwd(), 'images')
-    tg_token = os.getenv('TG_TOKEN')
-    chat_id = os.getenv('TG_CHANNEL_ID')
+    tg_token = os.environ['TG_TOKEN']
+    chat_id = os.environ['TG_CHANNEL_ID']
     bot = telegram.Bot(token=tg_token)
     pictures_in_dir = os.walk(images_path)
 
