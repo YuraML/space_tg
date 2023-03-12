@@ -29,8 +29,9 @@ def main():
             random.shuffle(image_filenames)
             for filename in image_filenames:
                 image_path = os.path.join(images_path, filename)
-                bot.send_document(chat_id=chat_id, document=open(image_path, 'rb'))
-                time.sleep(publication_delay)
+                with open(image_path, 'rb') as document:
+                    bot.send_document(chat_id=chat_id, document=document)
+                    time.sleep(publication_delay)
 
 
 if __name__ == '__main__':
