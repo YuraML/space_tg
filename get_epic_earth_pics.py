@@ -25,12 +25,15 @@ def main():
         image_date = formatted_date.strftime("%Y/%m/%d")
         image_filename = image_description['image']
         params = urllib.parse.urlencode({'api_key': api_key})
+
         image_response = requests.get(
             f'https://api.nasa.gov/EPIC/archive/natural/{image_date}/png/{image_filename}.png', params=params)
         image_response.raise_for_status()
         image_url = image_response.url
         image_urls.append(image_url)
-    download_images(image_urls, downloaded_from)
+
+        for image_number, image_url in enumerate(image_urls):
+            download_images(image_number, image_url, downloaded_from)
 
 
 if __name__ == '__main__':

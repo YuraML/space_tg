@@ -17,7 +17,8 @@ def main():
     response.raise_for_status()
 
     image_urls = response.json()['links']['flickr']['original']
-    download_images(image_urls, downloaded_from)
+    for image_number, image_url in enumerate(image_urls):
+        download_images(image_number, image_url, downloaded_from)
 
 
 if __name__ == '__main__':

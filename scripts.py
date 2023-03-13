@@ -4,15 +4,14 @@ import requests
 from urllib.parse import urlsplit, unquote
 
 
-def download_images(image_urls, downloaded_from):
-    for image_number, image_url in enumerate(image_urls):
-        images_path = 'images'
-        extension = get_image_extension(image_url)
-        filename = f'{downloaded_from}{image_number}{extension}'
-        response = requests.get(image_url)
-        response.raise_for_status()
-        with open(f'{images_path}/{filename}', 'wb') as file:
-            file.write(response.content)
+def download_images(image_number, image_url, downloaded_from):
+    images_path = 'images'
+    extension = get_image_extension(image_url)
+    filename = f'{downloaded_from}{image_number}{extension}'
+    response = requests.get(image_url)
+    response.raise_for_status()
+    with open(f'{images_path}/{filename}', 'wb') as file:
+        file.write(response.content)
 
 
 def get_image_extension(image_url):
