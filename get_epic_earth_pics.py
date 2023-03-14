@@ -33,7 +33,7 @@ def main():
         image_urls.append(image_url)
 
         for image_number, image_url in enumerate(image_urls):
-            download_images(image_number, image_url, downloaded_from)
+            download_image(image_number, image_url, downloaded_from)
 
 
 if __name__ == '__main__':
