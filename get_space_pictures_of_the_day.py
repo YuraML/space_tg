@@ -25,7 +25,7 @@ def main():
     images_description = response.json()
     image_urls = [unquote(image['url']) for image in images_description]
     for image_number, image_url in enumerate(image_urls):
-        download_images(image_number, image_url, downloaded_from)
+        download_image(image_number, image_url, downloaded_from)
 
 
 if __name__ == '__main__':
